@@ -5,7 +5,7 @@ import pandas as pd
 # Define your factions and URLs
 factions = {
     "Imperium of Man": "https://warhammer40k.fandom.com/wiki/Imperium_of_Man",
-    "Chaos": "https://warhammer40k.fandom.com/wiki/Chaos_(Warhammer_40,000)",
+    "Chaos": "https://warhammer40k.fandom.com/wiki/Chaos",
     "Eldar": "https://warhammer40k.fandom.com/wiki/Aeldari",
     "Orks": "https://warhammer40k.fandom.com/wiki/Orks",
     "Tyranids": "https://warhammer40k.fandom.com/wiki/Tyranids",
@@ -15,7 +15,7 @@ factions = {
 data = []
 
 for faction, url in factions.items():
-    page = requests.get(url)
+    page = requests.get(url, verify=False)
     soup = BeautifulSoup(page.content, "html.parser")
 
     # Extract all paragraphs from the article body
@@ -26,6 +26,6 @@ for faction, url in factions.items():
 
 # Save to CSV
 df = pd.DataFrame(data)
-df.to_csv("raw_lore_texts.csv", index=False)
+df.to_csv("data/raw_lore_texts.csv", index=False)
 
 print("Scraping complete. Data saved to data/raw_lore_texts.csv")
