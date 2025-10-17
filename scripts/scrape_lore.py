@@ -12,20 +12,29 @@ factions = {
     "Necrons": "https://warhammer40k.fandom.com/wiki/Necrons"
 }
 
-data = []
 
-for faction, url in factions.items():
-    page = requests.get(url, verify=False)
-    soup = BeautifulSoup(page.content, "html.parser")
+def scraping(lore_urls):
+    
+    # Empty table where the lore will go
+    data = []
+    
+    # Iterate over the URLs dictionary
+    for faction, url in lore_urls.items():
+        page = requests.get(url, verify=False)
+        soup = BeautifulSoup(page.content, "html.parser")
 
-    # Extract all paragraphs from the article body
-    paragraphs = soup.select("div.mw-parser-output > p")
-    text = " ".join([p.get_text() for p in paragraphs])
+        # Extract all paragraphs from the article body
+        paragraphs = soup.select("div.mw-parser-output > p")
+        text = " ".join([p.get_text() for p in paragraphs])
 
-    data.append({"Faction": faction, "Text": text})
+        data.append({"Title": faction, "Text": text})
+        
+    return data
+
+data_table = scraping(factions)
 
 # Save to CSV
-df = pd.DataFrame(data)
+df = pd.DataFrame(data_table)
 df.to_csv("data/raw_lore_texts.csv", index=False)
 
 print("Scraping complete. Data saved to data/raw_lore_texts.csv")
