@@ -6,7 +6,8 @@ from nltk.corpus import stopwords
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
-df = pd.read_csv("data/raw_lore_texts.csv")
+# Put whatever CSV you want to clean here
+df = pd.read_csv("data/raw_test_data_texts.csv")
 
 def clean_text(text):
     # if text is missing or not a string, return empty string
@@ -20,4 +21,4 @@ def clean_text(text):
     return " ".join(words)
 
 df["Cleaned_Text"] = df["Text"].apply(clean_text)
-df.to_csv("cleaned_lore.csv", index=False)
+df.to_csv("cleaned_test_data.csv", index=False)

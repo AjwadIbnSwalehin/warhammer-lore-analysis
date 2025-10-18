@@ -12,6 +12,14 @@ factions = {
     "Necrons": "https://warhammer40k.fandom.com/wiki/Necrons"
 }
 
+test_urls = {
+    "Roboute Guilliman": "https://warhammer40k.fandom.com/wiki/Roboute_Guilliman",
+    "Abaddon the Despoiler": "https://warhammer40k.fandom.com/wiki/Abaddon",
+    "Eldrad Ulthran": "https://warhammer40k.fandom.com/wiki/Eldrad_Ulthran",
+    "Ghazghkull Mag Uruk Thraka": "https://warhammer40k.fandom.com/wiki/Ghazghkull_Mag_Uruk_Thraka",
+    "Hive Tyrant": "https://warhammer40k.fandom.com/wiki/Hive_Tyrant",
+    "Imotekh": "https://warhammer40k.fandom.com/wiki/Imotekh"   
+}
 
 def scraping(lore_urls):
     
@@ -31,10 +39,10 @@ def scraping(lore_urls):
         
     return data
 
-data_table = scraping(factions)
+data_table = scraping(test_urls)
 
 # Save to CSV
 df = pd.DataFrame(data_table)
-df.to_csv("data/raw_lore_texts.csv", index=False)
+df.to_csv("data/raw_test_data_texts.csv", index=False)
 
-print("Scraping complete. Data saved to data/raw_lore_texts.csv")
+print("Scraping complete. Data saved to data/raw_test_data_texts.csv")
