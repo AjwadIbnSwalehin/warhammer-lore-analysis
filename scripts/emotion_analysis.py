@@ -61,6 +61,6 @@ ax.set_xticklabels(entry_labels)
 ax.set_title('Emotion Distribution per Text Entry')
 ax.set_xticks([i + bar_width for i in index])
 ax.legend(title='Emotion Type')
-plt.savefig('sentiment_analysis.png')
+plt.savefig('emotional_analysis.png')
 
 plt.show()
