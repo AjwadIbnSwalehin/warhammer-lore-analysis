@@ -1,7 +1,6 @@
 import pandas as pd
 from nltk.corpus import sentiwordnet as swn
 from nltk.tokenize import word_tokenize
-import nltk
 import matplotlib.pyplot as plt
 
 # Download necessary NLTK data files
@@ -12,7 +11,7 @@ import matplotlib.pyplot as plt
 # nltk.download('omw-1.4')
 
 # Assuming df is your DataFrame with a 'Text' column
-df = pd.read_csv('data/cleaned_lore.csv')  # Your cleaned text
+df = pd.read_csv('data/cleaned_faction_data.csv')  # Your cleaned text
 
 def analyse_text_emotion(text):
     tokens = word_tokenize(text)
@@ -43,7 +42,6 @@ fig, ax = plt.subplots(figsize = (12, 6))
 bar_width = 0.25
 index = range(len(df))
 entry_labels = df['Faction']
-print(entry_labels)
 
 # Extract data for plotting
 positive_emotions = [entry['standard_positive_emotion'] for entry in df['emotion']]
