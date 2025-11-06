@@ -1,7 +1,7 @@
 # Sentiment Analysis with NLTK
 
 ## Project Overview
-This project performs sentiment analysis on text data using the NLTK library's `SentiWordNet` module. The analysis calculates standardized positive, negative, and objective emotion scores for each text entry, and visualizes these results as bar graphs using Matplotlib.
+This project performs sentiment analysis on text data from Warhammer 40k's fandom page using the NLTK library's `SentiWordNet` module. The analysis calculates standardized positive, negative, and objective emotion scores for each text entry, and visualizes these results as bar graphs using Matplotlib.
 
 ## Folder Structure
 - **`scripts`**: Contains Python scripts used for sentiment analysis and visualization.
